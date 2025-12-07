@@ -23,8 +23,6 @@ func main() {
 		splits := intersect(beams, splitters(data[i]))
 		count += len(splits)
 		for _, j := range splits {
-			data[i][j-1] = '|'
-			data[i][j+1] = '|'
 			beams = slices.DeleteFunc(beams, func(beam int) bool {
 				return beam == j
 			})
@@ -36,7 +34,7 @@ func main() {
 			}
 		}
 
-		// additional visualization
+		// beam visualization
 		for _, b := range beams {
 			data[i][b] = '|'
 		}
