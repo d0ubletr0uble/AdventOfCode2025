@@ -22,8 +22,7 @@ func main() {
 	fmt.Println(string(data[0]))
 
 	for i := 1; i < len(data); i++ {
-		splits := intersect(beams, splitters(data[i]))
-		for _, j := range splits {
+		for _, j := range intersect(beams, splitters(data[i])) {
 			beams = slices.DeleteFunc(beams, func(beam int) bool {
 				return beam == j
 			})
