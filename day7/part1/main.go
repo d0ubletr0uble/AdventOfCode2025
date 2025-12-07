@@ -13,8 +13,7 @@ const InputFile = "day7/part1/input.txt"
 func main() {
 	data := readFile(convert)
 
-	idx := strings.IndexRune(string(data[0]), 'S')
-	beams := []int{idx}
+	beams := []int{strings.IndexRune(string(data[0]), 'S')}
 
 	fmt.Println(string(data[0]))
 
