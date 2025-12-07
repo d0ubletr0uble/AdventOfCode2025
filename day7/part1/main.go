@@ -15,13 +15,11 @@ func main() {
 
 	idx := strings.IndexRune(string(data[0]), 'S')
 	beams := []int{idx}
-	data[1][beams[0]] = '|'
 
 	fmt.Println(string(data[0]))
-	fmt.Println(string(data[1]))
 
 	count := 0
-	for i := 2; i < len(data); i++ {
+	for i := 1; i < len(data); i++ {
 		splits := intersect(beams, splitters(data[i]))
 		count += len(splits)
 		for _, j := range splits {
