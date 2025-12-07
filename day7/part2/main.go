@@ -15,15 +15,13 @@ func main() {
 
 	idx := strings.IndexRune(string(data[0]), 'S')
 	beams := []int{idx}
-	data[1][beams[0]] = '|'
 
 	// track how many timelines each beam carries
 	timelines := map[int]int{idx: 1}
 
 	fmt.Println(string(data[0]))
-	fmt.Println(string(data[1]))
 
-	for i := 2; i < len(data); i++ {
+	for i := 1; i < len(data); i++ {
 		splits := intersect(beams, splitters(data[i]))
 		for _, j := range splits {
 			data[i][j-1] = '|'
